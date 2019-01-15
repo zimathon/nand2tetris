@@ -11,6 +11,9 @@
 @i
 M=0 // i=0
 
+@result // refers to another location
+M=0
+
 (LOOP)
         @i
         D=M // D=8
@@ -25,3 +28,10 @@ M=0 // i=0
         D=D+M // D=i+R0
         @result
         M=D // result = result+b
+(END)
+        @result
+        D=M
+        @R2
+        M=D // R2 = result
+        @END
+        0; JMP // infinite loop
